@@ -1,0 +1,1 @@
+{"schema":1,"country":"B","name":"Belgium","files":{"history":true,"surfaces":true,"aggregate":true,"reasons":true},"evidence":[{"id":"forum_report","file":"forum_reports.json","label":"Rider report on the forum","section":"Rider reports on the forum","item":"Forum post","source":"TET topic on motor-forum.nl"}]}

@@ -1,0 +1,64 @@
+
+:root {
+  color-scheme: light;
+  --bg: #f6f5f2;
+  --surface: #fcfcfb;
+  --border: #e2e0da;
+  --text: #0b0b0b;
+  --text-2: #52514e;
+  --text-3: #7a7974;
+  --grid: #ebe9e4;
+  --added: #2a78d6;
+  --removed: #e34948;
+  --route: #6b6a66;
+  --route-old: #b9b7b0;
+  --accent: #2a78d6;
+  --sel: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121211;
+    --surface: #1a1a19;
+    --border: #33332f;
+    --text: #f0efec;
+    --text-2: #c3c2b7;
+    --text-3: #8e8d86;
+    --grid: #2a2a27;
+    --added: #3987e5;
+    --removed: #e66767;
+    --route: #a8a79f;
+    --route-old: #55554f;
+    --accent: #3987e5;
+    --sel: #1d2a3a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121211;
+  --surface: #1a1a19;
+  --border: #33332f;
+  --text: #f0efec;
+  --text-2: #c3c2b7;
+  --text-3: #8e8d86;
+  --grid: #2a2a27;
+  --added: #3987e5;
+  --removed: #e66767;
+  --route: #a8a79f;
+  --route-old: #55554f;
+  --accent: #3987e5;
+  --sel: #1d2a3a;
+}
+* { box-sizing: border-box; }
+
+
+.sitenav { display: flex; align-items: center; gap: 4px 16px; flex-wrap: wrap; padding: 8px 20px; border-bottom: 1px solid var(--border);
+  background: var(--surface); font: 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.sitenav .brand { font-weight: 650; color: var(--text); text-decoration: none; white-space: nowrap; }
+.sitenav .links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; min-width: 0; }
+.sitenav .links a { color: var(--text-2); text-decoration: none; padding: 4px 9px; border-radius: 6px; white-space: nowrap; }
+.sitenav .links a b { color: var(--text); font-weight: 600; }
+.sitenav .links a:hover { background: var(--bg); color: var(--text); }
+.sitenav .links a[aria-current="page"] { background: var(--bg); color: var(--text); box-shadow: inset 0 -2px 0 var(--accent); }
+.sitenav .div { width: 1px; height: 16px; background: var(--border); margin: 0 6px; }
+@media (max-width: 700px) { .sitenav { padding: 8px 16px; } .sitenav .links { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; } }

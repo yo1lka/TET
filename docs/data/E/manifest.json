@@ -1,0 +1,1 @@
+{"schema":1,"country":"E","name":"Spain","files":{"history":true,"surfaces":true,"aggregate":true,"reasons":true},"evidence":[{"id":"protected_area","file":"protected_areas.json","label":"Left a protected nature area","section":"Protected nature areas","item":"Protected area","source":"Nationally designated areas (EEA, reported by MITECO)"}]}

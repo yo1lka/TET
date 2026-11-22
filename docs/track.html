@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TET Track History</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/track.css">
+<script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+<nav class="sitenav" id="sitenav" aria-label="Site"></nav>
+<header>
+  <h1 id="title">TET track history</h1>
+  <span class="sub" id="subtitle"></span>
+</header>
+<div id="status">Loading…</div>
+<main id="app" hidden>
+  <section class="tiles" id="tiles"></section>
+
+  <section class="card">
+    <h2>Route length per version, with km added and removed <span style="font-weight:400;color:var(--text-3)">· <span class="sw" style="background:var(--added)"></span>added <span class="sw" style="background:var(--removed)"></span>removed</span></h2>
+    <div id="chart"><div class="tip" id="ctip"></div></div>
+  </section>
+
+  <section class="card" id="compCard" hidden>
+    <h2>The whole route, then vs now: what it is made of <span style="font-weight:400;color:var(--text-3)" id="compSrc"></span></h2>
+    <div class="agg">
+      <div id="compLeft"></div>
+      <div id="compRight"></div>
+    </div>
+  </section>
+
+  <section class="card" id="aggCard" hidden>
+    <h2>What kind of changes: new route, dropped route, reroutes and their surface direction</h2>
+    <div class="agg">
+      <div id="aggLeft"></div>
+      <div id="aggRight"></div>
+    </div>
+  </section>
+
+  <section class="card" id="whyCard" hidden>
+    <h2>Why route was removed or rerouted: possible explanations</h2>
+    <div class="why" id="why"></div>
+  </section>
+
+  <section class="card" id="surfCard" hidden>
+    <h2>Road surface of the changed stretches <span style="font-weight:400;color:var(--text-3)" id="surfSrc">· OpenStreetMap as it was on the date of each change</span></h2>
+    <div class="surf">
+      <div id="surfSummary"></div>
+      <div>
+        <h3>Per version: surface mix of what was removed and what was added</h3>
+        <div class="sver" id="surfVersions"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workspace">
+    <div class="card mapcard">
+      <div class="controls">
+        <div class="grp" role="group" aria-label="View">
+          <button id="mVersion" aria-pressed="true" title="Changes made in the selected version">One version</button>
+          <button id="mAll" aria-pressed="false" title="Every change across the whole history, coloured by year">All history</button>
+          <button id="mDir" aria-pressed="false" title="Every reroute coloured by whether it moved towards offroad or asphalt" hidden>Reroute direction</button>
+        </div>
+        <button id="prev" title="Previous version (←)">◀</button>
+        <select id="verSel" aria-label="Version"></select>
+        <button id="next" title="Next version (→)">▶</button>
+        <span class="sep"></span>
+        <label><input type="checkbox" id="optOld"> Show first route</label>
+        <label><input type="checkbox" id="optWpt"> Waypoint changes</label>
+        <label title="Colour changed stretches by OSM road surface"><input type="checkbox" id="optSurf" disabled> Colour changes by surface</label>
+        <select id="surfWhich" aria-label="Which stretches to colour by surface" hidden>
+          <option value="both">Added + removed</option><option value="added">Added only</option><option value="removed">Removed only</option>
+        </select>
+        <div class="grp rsurf" role="group" aria-label="Colour the whole route by surface" id="rsurf" hidden>
+          <span class="lbl" title="Colour the whole route by OSM road surface">Route surface</span>
+          <button data-rs="off" aria-pressed="true">Off</button>
+          <button data-rs="this" title="The route of the version shown">This version</button>
+          <button data-rs="prev" title="The route of the version before it (key P flips between the two)">Previous</button>
+          <button data-rs="first" title="The first route in the history">First</button>
+        </div>
+        <span class="sep"></span>
+        <select id="basemap" aria-label="Background map" title="Background map"></select>
+        <details class="layers">
+          <summary title="Map layers: relief, elevation, land cover, protected areas">Layers</summary>
+          <div class="panel">
+            <label><input type="checkbox" id="optMuted"> Muted (grey) background</label>
+            <div class="ttl">Overlays</div>
+            <div id="layerList"></div>
+            <label class="op">Overlay strength <input type="range" id="overlayOpacity" min="0.3" max="1.8" step="0.1"></label>
+          </div>
+        </details>
+      </div>
+      <div id="map"></div>
+    </div>
+    <aside class="card timeline" id="timeline">
+      <div class="head">
+        <h2>Timeline</h2>
+        <div class="hint">Newest first. Click a version, then a change to zoom to it.</div>
+      </div>
+      <div id="tlist"></div>
+    </aside>
+  </section>
+</main>
+<footer id="foot"></footer>
+
+</body>
+</html>

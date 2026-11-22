@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TET Route History</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/overview.css">
+<script type="module" src="assets/js/overview.js"></script>
+</head>
+<body>
+<nav class="sitenav" id="sitenav" aria-label="Site"></nav>
+<div class="wrap">
+  <h1>Trans Euro Trail route history</h1>
+  <p>How each country's TET track changed between downloads, worked out from this repository's git history: new and dropped route, reroutes, and whether the route moved towards offroad or towards road. Pick a country for its timeline, map and the possible reasons for each change.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Country</th><th>History</th><th>Route changes</th><th>Route km then → now</th><th>New km</th><th>Dropped km</th>
+      <th title="km of old route replaced → km of new route">Rerouted km</th>
+      <th title="Share of the whole route on loose surface or trail (of km with a known surface), first version → now">Offroad then → now</th>
+      <th title="Rerouted km: offroad replaced by road">Offroad → road</th><th title="Rerouted km: road replaced by offroad">Road → offroad</th>
+      <th title="Road → offroad minus offroad → road">Net to offroad</th></tr></thead>
+    <tbody id="rows"><tr><td colspan="11">Loading…</td></tr></tbody>
+  </table></div>
+  <div class="muted" id="gen"></div>
+  <h2>Track evolution: the route on 1 January each year</h2>
+  <p class="hint">Every analysed country's route as it stood at the start of each year, added up, by road surface.
+    Use it to follow how the trail grew and whether it moved towards road or offroad.</p>
+  <div id="evolution"></div>
+  <h2>All TET countries</h2>
+  <p class="hint">Analysed countries link to their page: timeline, map, surfaces and the possible reasons for each change.
+    The others are not analysed yet.</p>
+  <div class="cgrid" id="cgrid"></div>
+</div>
+</body>
+</html>
